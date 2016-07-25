@@ -1,15 +1,11 @@
 import { ADD_ITEM } from '../actions'
 
-const initialState = {
-	items: []
-}
-
-export default function item(state = initialState, action) {
+export default function item(state = [], action) {
 
 	switch (action.type) {
 		case ADD_ITEM:
 			return [
-				...state.items,
+				...state,
 				{
 					id: action.id,
 					text: "Test item: " + action.id

@@ -5,7 +5,7 @@ const Items = ({ items, onItemClick }) => {
 	return (
  		<ul>
 		{ 
-			items.map((item) => (
+			items.forEach((item) => (
 				<Item
 					key={ item.id }
 					{ ...item }
