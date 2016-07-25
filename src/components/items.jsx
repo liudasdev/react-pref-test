@@ -9,7 +9,7 @@ const Items = ({ items, onItemClick }) => {
 				<Item
 					key={ item.id }
 					{ ...item }
-					onClick={() => onTodoClick(item.id)}
+					onClick={() => onItemClick(item.id)}
 		  			/>
 	  		))
 		}
@@ -22,7 +22,7 @@ Items.propTypes = {
 	id: PropTypes.number.isRequired,
 	text: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onItemlick: PropTypes.func.isRequired
+  onItemClick: PropTypes.func.isRequired
 }
 
 export default Items
