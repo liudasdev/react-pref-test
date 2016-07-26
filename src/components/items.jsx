@@ -5,7 +5,7 @@ let renderCount = 0
 
 const Items = ({ items, onIncrementClick, onDecrementClick }) => {
 
-	console.log('render > list')
+	// console.log('render > list')
 	renderCount++
 
 	return (
