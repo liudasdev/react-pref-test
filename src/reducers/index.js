@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
 
-import items from './items'
+// import items from './items'
+import items from './items-immutable'
+
 import title from './title'
 
 const app = combineReducers({
