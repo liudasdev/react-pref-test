@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import pureRenderer from '../pure-renderer'
 import Item from './item'
 
 let renderCount = 0
@@ -19,8 +19,8 @@ const Items = ({ items, onIncrementClick, onDecrementClick }) => {
 					<Item
 						key={ item.id }
 						{ ...item }
-						onIncrementClick={() => onIncrementClick(item.id)}
-						onDecrementClick={() => onDecrementClick(item.id)}
+						onIncrementClick={ onIncrementClick }
+						onDecrementClick={ onDecrementClick }
 			  			/>
 		  		))
 			}
@@ -41,15 +41,11 @@ Items.propTypes = {
   onDecrementClick: PropTypes.func.isRequired
 }
 
-export default class extends React.Component {
-
-	constructor(props) {
-
-		super(props)
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
-	}
+class ItemsComponent extends React.Component {
 
 	render() {
 		return Items(this.props)
 	}
 }
+
+export default pureRenderer(ItemsComponent)

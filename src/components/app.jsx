@@ -1,5 +1,5 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import pureRenderer from '../pure-renderer'
 
 import Perf from './perf'
 import Title from '../containers/title'
@@ -13,15 +13,10 @@ const App = () => (
   </div>
 )
 
-export default class extends React.Component {
-
-	constructor(props) {
-
-		super(props)
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
-	}
-
+class AppComponent extends React.Component {
 	render() {
 		return App(this.props)
 	}
 }
+
+export default pureRenderer(AppComponent)

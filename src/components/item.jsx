@@ -1,21 +1,26 @@
 import React, { PropTypes } from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { incrementRenderCount } from '../data'
+import pureRenderer from '../pure-renderer'
 
 const Item = ({ onIncrementClick, onDecrementClick, text, count, id }) => {
 
-	const renderCount = incrementRenderCount(id)
+	// const renderCount = incrementRenderCount(id)
 
-	console.log('render > item >', id)
+	function handleIncrementClick() {
+		onIncrementClick(id)
+	}
+
+	function handleDecrementClick() {
+		onDecrementClick(id)
+	}
 
 	return (
 		<li>
 	  		<div>{ text }</div>
-	  		<div>Render: { renderCount }</div>
 	  		<div>Count: { count }</div>
 	  		<div>
-	  			<button onClick={ onIncrementClick }>+</button>
-	  			<button onClick={ onDecrementClick }>-</button>
+	  			<button onClick={ handleIncrementClick }>+</button>
+	  			<button onClick={ handleDecrementClick }>-</button>
 	  		</div>
 		</li>
 	)
@@ -26,16 +31,14 @@ Item.propTypes = {
 	onDecrementClick: PropTypes.func.isRequired,
 	text: PropTypes.string.isRequired
 }
+ 
 
-export default class extends React.Component {
-
-	constructor(props) {
-
-		super(props)
-		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
-	}
+class ItemComponent extends React.Component {
 
 	render() {
+		console.error('render > item', this.props.id)
 		return Item(this.props)
 	}
 }
+
+export default pureRenderer(ItemComponent)
