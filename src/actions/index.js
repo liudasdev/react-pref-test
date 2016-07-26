@@ -30,9 +30,9 @@ export function addItem() {
 	}
 }
 
-export function updateTitle(text) {
+export function updateTitle() {
 	return {
 		type: UPDATE_TITLE,
-		text: text
+		text: uuid.v4()
 	}
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Title from '../components/title'
-import { addItem } from '../actions'
+import { addItem, updateTitle } from '../actions'
 
 function mapStateToProps(state) {
 	return {
@@ -12,7 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		onClick: () => dispatch(addItem())
+		onAddClick: () => dispatch(addItem()),
+		onUpdateClick: () => dispatch(updateTitle())
 	}
 }
 
