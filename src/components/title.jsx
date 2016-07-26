@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 const Title = ({ text, onAddClick, onUpdateClick }) => {
 	
@@ -19,4 +20,15 @@ Title.propTypes = {
 	onUpdateClick: PropTypes.func.isRequired
 }
 
-export default Title
+export default class extends React.Component {
+
+	constructor(props) {
+
+		super(props)
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+	}
+
+	render() {
+		return Title(this.props)
+	}
+}

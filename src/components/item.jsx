@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { incrementRenderCount } from '../data'
 
 const Item = ({ onIncrementClick, onDecrementClick, text, count, id }) => {
@@ -26,4 +27,15 @@ Item.propTypes = {
 	text: PropTypes.string.isRequired
 }
 
-export default Item
+export default class extends React.Component {
+
+	constructor(props) {
+
+		super(props)
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+	}
+
+	render() {
+		return Item(this.props)
+	}
+}
