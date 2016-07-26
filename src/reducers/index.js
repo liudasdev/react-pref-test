@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 
-// import items from './items'
-import items from './items-immutable'
+import items from './items'
 
 import title from './title'
 
