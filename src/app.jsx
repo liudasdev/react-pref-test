@@ -27,7 +27,7 @@ setTimeout(function() {
 
 	var time = +new Date()
 
-	for(let i = 0; i < 100; i++) {
+	for(let i = 0; i < 1000; i++) {
 		store.dispatch(addItem())
 	}
 	var elapsed = +new Date() - time

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import Item from './../containers/item'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 let renderCount = 0
 
@@ -28,4 +29,15 @@ Items.propTypes = {
   }).isRequired).isRequired
 }
 
-export default Items
+export default class extends React.Component {
+
+	constructor(props) {
+
+		super(props)
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+	}
+
+	render() {
+		return Items(this.props)
+	}
+}
