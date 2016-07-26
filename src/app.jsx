@@ -3,14 +3,17 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-import app from './reducers'
+import App from './components/app'
+import reducers from './reducers'
 
 let store = createStore(
-	app, 
+	reducers, 
 	typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 )
 
-import App from './components/app'
+let unsubscribe = store.subscribe(() =>
+	console.log('store > state', store.getState())
+)
 
 render(
 	<Provider store={ store }>
