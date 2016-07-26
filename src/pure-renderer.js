@@ -18,8 +18,6 @@ export default function PureRender(component) {
 // Modified copy from https://github.com/gaearon/react-pure-render
 function shallowEquals(objA, objB) {
 
-    console.log('shallowEquals', objA, objB)
-
     if (objA === objB) {
         return true;
     }

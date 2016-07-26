@@ -3,8 +3,6 @@ import pureRenderer from '../pure-renderer'
 
 const Title = ({ text, onAddClick, onUpdateClick }) => {
 	
-	console.log('render > title')
-
 	return (
 		<div>
 			<p>-- { text } --</p>

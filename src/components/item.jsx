@@ -36,7 +36,6 @@ Item.propTypes = {
 class ItemComponent extends React.Component {
 
 	render() {
-		console.error('render > item', this.props.id)
 		return Item(this.props)
 	}
 }
