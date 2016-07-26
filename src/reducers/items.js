@@ -5,7 +5,7 @@ import {
 } from '../actions'
 
 
-export default function item(state = [], action) {
+export default function (state = [], action) {
 
 	switch (action.type) {
 		case ADD_ITEM:

@@ -11,9 +11,9 @@ let store = createStore(
 	typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 )
 
-let unsubscribe = store.subscribe(() =>
-	console.log('store > state', store.getState())
-)
+let unsubscribe = store.subscribe(() => {
+	// console.log('store > state', store.getState())
+})
 
 render(
 	<Provider store={ store }>

@@ -3,21 +3,14 @@ import {
 	DECREMENT
 } from '../actions'
 
-const initialState = {
-	count: 0
-}
-
-export function item(state = initialState, action) {
+export function item(state = 0, action) {
 
 	switch (action.type) {
 		case INCREMENT:
-			return Object.assign({}, state, {
-				count: state.count + 1
+			return state + 1
 			})
 		case DECREMENT:
-			return Object.assign({}, state, {
-				count: state.count - 1
-			})
+			return state - 1
 		default:
 			return state
 	}
