@@ -24,7 +24,12 @@ render(
 )
 
 setTimeout(function() {
+
+	var time = +new Date()
+
 	for(let i = 0; i < 100; i++) {
 		store.dispatch(addItem())
 	}
+	var elapsed = +new Date() - time
+	alert(elapsed)
 }, 1000)
