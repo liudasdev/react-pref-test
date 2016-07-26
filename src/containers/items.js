@@ -1,24 +1,17 @@
 import React from 'react'
-import { connect, bindActionCreators } from 'react-redux'
+import { connect } from 'react-redux'
 
 import Items from '../components/items'
-import { increment, decrement } from '../actions'
 
 function mapStateToProps(state) {
-	console.log('mapStateToProps > items')
-	return {
-		items: state.items
-	}
-}
 
-function mapDispatchToProps(dispatch) {
+	console.log('mapStateToProps > items')
+	
 	return {
-		onIncrementClick: (id) => dispatch(increment(id)),
-		onDecrementClick: (id) => dispatch(decrement(id))
+		ids: state.ids
 	}
 }
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	mapStateToProps
 )(Items)

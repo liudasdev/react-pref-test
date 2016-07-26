@@ -1,11 +1,19 @@
 import React, { PropTypes } from 'react'
 import { incrementRenderCount } from '../data'
 
-const Item = ({ onIncrementClick, onDecrementClick, text, count, id }) => {
+const Item = ({ item, increment, decrement, id }) => {
 
 	const renderCount = incrementRenderCount(id)
+	const { text, count } = item
+	console.log('render > item >', id, item)
 
-	console.log('render > item >', id)
+	function handleIncrementClick() {
+		increment(id)
+	}
+
+	function handleDecrementClick() {
+		decrement(id)
+	}
 
 	return (
 		<li>
@@ -13,17 +21,21 @@ const Item = ({ onIncrementClick, onDecrementClick, text, count, id }) => {
 	  		<div>Render: { renderCount }</div>
 	  		<div>Count: { count }</div>
 	  		<div>
-	  			<button onClick={ onIncrementClick }>+</button>
-	  			<button onClick={ onDecrementClick }>-</button>
+	  			<button onClick={ handleIncrementClick }>+</button>
+	  			<button onClick={ handleDecrementClick }>-</button>
 	  		</div>
 		</li>
 	)
 }
 
 Item.propTypes = {
-	onIncrementClick: PropTypes.func.isRequired,
-	onDecrementClick: PropTypes.func.isRequired,
-	text: PropTypes.string.isRequired
+	increment: PropTypes.func.isRequired,
+	decrement: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired,
+	item: PropTypes.shape({
+		count: PropTypes.number.isRequired,
+		text: PropTypes.string.isRequired
+  	}).isRequired
 }
 
 export default Item

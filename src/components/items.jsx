@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
-import Item from './item'
+import Item from './../containers/item'
 
 let renderCount = 0
 
-const Items = ({ items, onIncrementClick, onDecrementClick }) => {
+const Items = ({ ids }) => {
 
 	console.log('render > list')
 	renderCount++
@@ -14,14 +14,9 @@ const Items = ({ items, onIncrementClick, onDecrementClick }) => {
 			Items:
 	 		<ul>
 			{ 
-				items.map((item) => (
-					<Item
-						key={ item.id }
-						{ ...item }
-						onIncrementClick={() => onIncrementClick(item.id)}
-						onDecrementClick={() => onDecrementClick(item.id)}
-			  			/>
-		  		))
+				ids.map(id => (
+					<Item key={ id } id={ id } />
+				))
 			}
 	  		</ul>
 	  	</div>
@@ -29,15 +24,9 @@ const Items = ({ items, onIncrementClick, onDecrementClick }) => {
 }
 
 Items.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-	id: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired,
-	count: PropTypes.number.isRequired,
-	onIncrementClick: PropTypes.func.isRequired,
-	onDecrementClick: PropTypes.func.isRequired
-  }).isRequired).isRequired,
-  onIncrementClick: PropTypes.func.isRequired,
-  onDecrementClick: PropTypes.func.isRequired
+  ids: PropTypes.arrayOf(PropTypes.shape({
+	id: PropTypes.string.isRequired
+  }).isRequired).isRequired
 }
 
 export default Items

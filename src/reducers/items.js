@@ -1,44 +1,38 @@
 import { 
-	ADD_ITEM,
-	INCREMENT,
-	DECREMENT
+	ADD_ITEM, 
+	INCREMENT, 
+	DECREMENT 
 } from '../actions'
 
+export default function (state = {}, action) {
 
-export default function (state = [], action) {
+	const item = state[action.id]
 
 	switch (action.type) {
 		case ADD_ITEM:
-			return [
+			return {
 				...state,
-				{
-					id: action.id,
+				[action.id]: {
 					count: 0,
 					text: "Test item: " + action.id
 				}
-			]
+			}
 		case INCREMENT:
-			return state.map((item) => {
-
-				if (item.id !== action.id) {
-					return item
-				}
-
-				return Object.assign({}, item, {
+			return {
+				...state,
+				[action.id]: {
+					...item, 
 					count: item.count + 1
-				})
-			})
-		case DECREMENT:
-			return state.map((item) => {
-
-				if (item.id !== action.id) {
-					return item
 				}
-
-				return Object.assign({}, item, {
+			}
+		case DECREMENT:
+			return {
+				...state,
+				[action.id]: {
+					...item, 
 					count: item.count - 1
-				})
-			})
+				}
+			}
 		default:
 			return state
 	}
