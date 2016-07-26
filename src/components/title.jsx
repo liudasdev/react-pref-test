@@ -2,8 +2,6 @@ import React, { PropTypes } from 'react'
 
 const Title = ({ text, addItem, updateTitle }) => {
 	
-	console.log('render > title')
-
 	return (
 		<div>
 			<p>-- { text } --</p>

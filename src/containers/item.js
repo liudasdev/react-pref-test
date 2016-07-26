@@ -6,8 +6,6 @@ import { increment, decrement } from '../actions'
 
 function mapStateToProps(state, props) {
 
-	console.log('mapStateToProps > item')
-
 	const { id } = props;
 	const { items } = state;
 

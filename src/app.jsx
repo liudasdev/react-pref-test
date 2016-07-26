@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { addItem } from './actions'
 
 import App from './components/app'
 import reducers from './reducers'
@@ -21,3 +22,14 @@ render(
 	</Provider>,
 	document.getElementById('root')
 )
+
+setTimeout(function() {
+
+	var time = +new Date()
+
+	for(let i = 0; i < 100; i++) {
+		store.dispatch(addItem())
+	}
+	var elapsed = +new Date() - time
+	alert(elapsed)
+}, 1000)

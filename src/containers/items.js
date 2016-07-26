@@ -5,8 +5,6 @@ import Items from '../components/items'
 
 function mapStateToProps(state) {
 
-	console.log('mapStateToProps > items')
-	
 	return {
 		ids: state.ids
 	}

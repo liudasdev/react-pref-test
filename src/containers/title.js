@@ -6,8 +6,6 @@ import { addItem, updateTitle } from '../actions'
 
 function mapStateToProps(state) {
 
-	console.log('mapStateToProps > title')
-	
 	return {
 		text: state.title
 	}

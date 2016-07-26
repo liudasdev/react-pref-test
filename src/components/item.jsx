@@ -3,9 +3,8 @@ import { incrementRenderCount } from '../data'
 
 const Item = ({ item, increment, decrement, id }) => {
 
-	const renderCount = incrementRenderCount(id)
+	// const renderCount = incrementRenderCount(id)
 	const { text, count } = item
-	console.log('render > item >', id, item)
 
 	function handleIncrementClick() {
 		increment(id)
@@ -18,7 +17,6 @@ const Item = ({ item, increment, decrement, id }) => {
 	return (
 		<li>
 	  		<div>{ text }</div>
-	  		<div>Render: { renderCount }</div>
 	  		<div>Count: { count }</div>
 	  		<div>
 	  			<button onClick={ handleIncrementClick }>+</button>

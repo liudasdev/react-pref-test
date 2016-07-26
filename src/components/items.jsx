@@ -5,7 +5,6 @@ let renderCount = 0
 
 const Items = ({ ids }) => {
 
-	console.log('render > list')
 	renderCount++
 
 	return (
